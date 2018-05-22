@@ -95,7 +95,7 @@ fi;
 IP=$(ifconfig | grep "inet " | grep -v 127.0.0. | awk '{print $2}');
 
 # Display IP at the start of terminal
-echo "${red}IP: ${IP}";
+echo "${bold}${red}IP: ${IP}${reset}";
 
 # Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then
@@ -118,7 +118,7 @@ PS1+="\[${userStyle}\](\u)@"; # username
 # PS1+="\[${white}\]"; at removed
 PS1+="\[${hostStyle}\]\h"; # host
 PS1+="\[${white}\]:";
-PS1+="\[${green}\]\w"; # working directory full path
+PS1+="\[${red}\]\w"; # working directory full path
 PS1+="\$(prompt_git \"\[${white}\] on \[${blue}\]\" \"\[${blue}\]\")"; # Git repository details
 PS1+="\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
