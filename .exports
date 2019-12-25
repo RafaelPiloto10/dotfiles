@@ -33,14 +33,6 @@ export MANPAGER='less -X';
 # https://stackoverflow.com/a/42265848/96656
 export GPG_TTY=$(tty);
 
-# Setting PATH for Python 3.6
-# The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-PATH="/usr/local/ActivePerl-5.26/bin:${PATH}";
-PATH="/opt/local/bin:/opt/local/sbin:${PATH}";
-PATH="/Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/bin:${PATH}";
-JAVA_HOME="$(/usr/libexec/java_home -v 1.8)";
-export JAVA_HOME;
 export PATH;
 
 export XDG_CONFIG_HOME="$HOME/.config"

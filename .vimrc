@@ -28,7 +28,8 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'chriskempson/base16-vim'
-
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Bundle 'edkolev/tmuxline.vim'
 
 " All of your Plugins must be added before the following line
@@ -88,7 +89,7 @@ let g:tmuxline_preset = {
       \'b'    : ['#I', '#W', '#F'],
       \'c'    : '',
       \'y'    : ['%a', '%D'],
-      \'z'    : '%r'}
+      \'z'    : ['%r', '#(cat /sys/class/power_supply/BAT0/capacity)%']}
 
 filetype on
 
@@ -122,3 +123,14 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 
 colorscheme base16-default-dark
+
+" close nerdtree if its the last thing left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Map nerd tree
+map <C-b> :NERDTreeToggle<CR>
+
+" Open nerd tree if directory is opened with vim
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
