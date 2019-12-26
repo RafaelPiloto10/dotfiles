@@ -5,6 +5,7 @@ filetype off
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/ctrlp.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -30,7 +31,12 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'chriskempson/base16-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Bundle 'edkolev/tmuxline.vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -67,12 +73,13 @@ let g:airline_theme='bubblegum'
 " %M --> Mins (30)
 " %S --> Seconds (09)
 " %p --> AM/PM (AM)
-"D ()
-"F ()
+"D (?)
+"F (Current window flag)
 "H (hostname)
+"h (hostname without domain name)
 "I (window index)
-"P ()
-"S (session index)
+"P (?)
+"S (session name)
 "T (pane title)
 "W (currnet task like vim if editing a file in vim or zsh if running zsh)
 
@@ -86,7 +93,7 @@ let g:airline_theme='bubblegum'
 
 let g:tmuxline_preset = {
       \'a'    : '#H', 
-      \'b'    : ['#I', '#W', '#F'],
+      \'b'    : ['#S', '#I', '#W', '#F'],
       \'c'    : '',
       \'y'    : ['%a', '%D'],
       \'z'    : ['%r', '#(cat /sys/class/power_supply/BAT0/capacity)%']}
@@ -95,8 +102,8 @@ filetype on
 
 " Enable syntax highlighting
 syntax on
-" Make tabs as wide as two spaces
-set tabstop=2
+" Make tabs as wide as four spaces
+set tabstop=4
 " Enable line numbers
 set number
 " Show the cursor position
@@ -108,14 +115,25 @@ set clipboard=unnamed
 " Enhance command-line completion
 set wildmenu
 " Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_
 " Don’t create backups when editing files in certain directories
 set backupskip=/tmp/*,/private/tmp/*
 " Highlight searches
 set hlsearch
 " Don’t show the intro message when starting Vim
 set shortmess=atI
+set wrap " turn on line wrapping
 
+" code folding setting
+set foldmethod=syntax " fold based on indent
+set foldlevelstart=99
+set foldnestmax=10 " deepest fold is 10 levels
+set nofoldenable " don't fold by defa
+
+set number relativenumber
+
+" Map leader
+let mapleader=","
 
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
@@ -134,3 +152,7 @@ map <C-b> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
+let g:syntastic_python_python_exec = '/usr/local/bin/python3.8'
+
+highlight SyntasticWarning NONE
+highlight SyntasticError NONE

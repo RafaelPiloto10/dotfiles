@@ -35,4 +35,5 @@ export GPG_TTY=$(tty);
 
 export PATH;
 
-export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CONFIG_HOME="$HOME/.config";
+export JAVA_HOME="$HOME/frc2019/jdk";

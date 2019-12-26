@@ -197,3 +197,32 @@ function o() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+function cRun(){
+	if [ $# -eq 0 ]; then 
+		g++ main.cpp;
+		./a.out;
+	else
+		g++ ${1};
+		./a.out;
+	fi;
+}
+
+function jRun() {
+	if [ $# -eq 0 ]; then 
+		javac main.java;
+		java main;
+	else
+		javac ${1};
+		java basename ${1};
+	fi;
+}
+
+function copy() {
+	if [ $# -eq 0 ]; then 
+		echo "Provide file to copy to clipboard"
+	else
+		cat ${1} | xclip -selection clipboard
+		echo "File contents copied to clipboard"
+	fi;
+}
