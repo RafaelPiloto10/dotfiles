@@ -33,6 +33,7 @@ Plugin 'Chiel92/vim-autoformat'
 " ===================
 Plugin 'rainglow/vim'
 Plugin 'sickill/vim-monokai'
+Plugin 'drewtempelmeyer/palenight.vim'
 
 call vundle#end()               " required
 
@@ -245,12 +246,12 @@ highlight SyntasticError NONE
 
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='base16_monokai'
+let g:airline_theme='palenight'
 
-let g:lightline= {'colorscheme' : 'monokai'}
+let g:lightline= {'colorscheme' : 'palenight'}
 set background=dark
 
-colorscheme monokai
+colorscheme palenight 
 
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
