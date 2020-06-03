@@ -31,10 +31,10 @@ Plugin 'Chiel92/vim-autoformat'
 " ===================
 " colorschemes
 " ===================
-Plugin 'rainglow/vim'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'sickill/vim-monokai'
 Plugin 'drewtempelmeyer/palenight.vim'
-
+Plugin 'gruvbox-community/gruvbox'
 call vundle#end()               " required
 
 " ===================
@@ -246,12 +246,11 @@ highlight SyntasticError NONE
 
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='palenight'
+let g:airline_theme='gruvbox'
 
-let g:lightline= {'colorscheme' : 'palenight'}
+let g:lightline= {'colorscheme' : 'gruvbox'}
+colorscheme gruvbox 
 set background=dark
-
-colorscheme palenight 
 
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
