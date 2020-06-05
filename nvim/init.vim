@@ -246,10 +246,10 @@ highlight SyntasticError NONE
 
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='gruvbox'
+let g:airline_theme='palenight'
 
-let g:lightline= {'colorscheme' : 'gruvbox'}
-colorscheme gruvbox 
+let g:lightline= {'colorscheme' : 'palenight'}
+colorscheme palenight 
 set background=dark
 
 if (has("nvim"))
@@ -262,3 +262,4 @@ endif
 if (has("termguicolors"))
 	set termguicolors
 endif
+
