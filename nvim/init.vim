@@ -13,7 +13,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'chriskempson/base16-vim'
+Plugin 'chriskempson/base16-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'vim-syntastic/syntastic'
@@ -246,9 +246,9 @@ highlight SyntasticError NONE
 
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='palenight'
+" let g:airline_theme='bubblegum'
 
-let g:lightline= {'colorscheme' : 'palenight'}
+let g:lightline= {'colorscheme' : 'bubblegum'}
 colorscheme palenight 
 set background=dark
 
@@ -263,3 +263,7 @@ if (has("termguicolors"))
 	set termguicolors
 endif
 
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
