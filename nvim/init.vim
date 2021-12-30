@@ -1,3 +1,18 @@
+" hello front end masters
+set path+=**
+
+" Nice menu when typing `:find *.py`
+set wildmode=longest,list,full
+set wildmenu
+" Ignore files
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=**/coverage/*
+set wildignore+=**/node_modules/*
+set wildignore+=**/android/*
+set wildignore+=**/ios/*
+set wildignore+=**/.git/*
+
 set nocompatible               " be improved, required
 filetype off                   " required
 " set the runtime path to include Vundle and initialize
@@ -246,11 +261,9 @@ highlight SyntasticError NONE
 
 
 let g:airline_powerline_fonts = 1
-" let g:airline_theme='bubblegum'
+let g:airline_theme='minimalist'
 
-let g:lightline= {'colorscheme' : 'bubblegum'}
 colorscheme palenight 
-set background=dark
 
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
@@ -267,3 +280,7 @@ if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
+
+highlight clear LineNr
+highlight clear SignColumn
+hi Normal guibg=NONE ctermbg=NONE

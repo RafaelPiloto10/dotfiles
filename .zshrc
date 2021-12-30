@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 ZSH_DISABLE_COMPFIX=true
 # Path to your oh-my-zsh installation.
-export ZSH="/users/apollo/.oh-my-zsh"
+export ZSH="/users/vulcan/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -120,3 +120,4 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 
 alias vim="nvim"
 alias vi="nvim"
+
