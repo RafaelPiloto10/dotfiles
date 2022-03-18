@@ -1,5 +1,6 @@
 " hello front end masters
 set path+=**
+let mapleader=","
 
 " Nice menu when typing `:find *.py`
 set wildmode=longest,list,full
@@ -31,27 +32,22 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'chriskempson/base16-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-colorscheme-switcher'
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
+Plugin 'google/vim-glaive'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-Plugin 'vim-python/python-syntax'
-Plugin 'Chiel92/vim-autoformat'
 " ===================
 " end of plugins
 " ===================
-
-" ===================
-" colorschemes
-" ===================
-Plugin 'flazz/vim-colorschemes'
-Plugin 'sickill/vim-monokai'
-Plugin 'drewtempelmeyer/palenight.vim'
-Plugin 'gruvbox-community/gruvbox'
-call vundle#end()               " required
-
+"
 " ===================
 " coc settings
 " ===================
@@ -139,14 +135,6 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
 xmap <leader>a  <Plug>(coc-codeaction-selected)
@@ -172,9 +160,6 @@ omap ac <Plug>(coc-classobj-a)
 " Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
-
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
 
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
@@ -206,9 +191,19 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " ===================
+" colorschemes
+" ===================
+Plugin 'flazz/vim-colorschemes'
+Plugin 'sickill/vim-monokai'
+Plugin 'drewtempelmeyer/palenight.vim'
+Plugin 'gruvbox-community/gruvbox'
+call vundle#end()               " required
+
+" ===================
 " my settings
 " ===================
 filetype plugin indent on       " required
+nmap ff :FZF<CR>
 " set cursor to block when in insert mode
 set guicursor=n-v-c-sm:block,i-ci-ve:block,r-cr-o:hor20
 " Enable syntax highlighting
@@ -246,7 +241,6 @@ set nofoldenable " don't fold by defa
 " set line numbers to be relative
 set number relativenumber
 " Map leader
-let mapleader=","
 " close nerdtree if its the last thing left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Map nerd tree
@@ -256,19 +250,15 @@ map <C-b> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
-highlight SyntasticWarning NONE
-highlight SyntasticError NONE
-
-
 let g:airline_powerline_fonts = 1
 let g:airline_theme='minimalist'
-
-colorscheme palenight 
+colorscheme DevC++
 
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
+
 "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
 "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
 " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
@@ -276,11 +266,29 @@ if (has("termguicolors"))
 	set termguicolors
 endif
 
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
+" if filereadable(expand("~/.vimrc_background"))
+"   let base16colorspace=256
+"   source ~/.vimrc_background
+" endif
+"
 
 highlight clear LineNr
 highlight clear SignColumn
 hi Normal guibg=NONE ctermbg=NONE
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+augroup autoformat_settings
+  autocmd FileType bzl AutoFormatBuffer buildifier
+  autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
+  autocmd FileType dart AutoFormatBuffer dartfmt
+  autocmd FileType go AutoFormatBuffer gofmt
+  autocmd FileType gn AutoFormatBuffer gn
+  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+  autocmd FileType java AutoFormatBuffer google-java-format
+  autocmd FileType python AutoFormatBuffer yapf
+  " Alternative: autocmd FileType python AutoFormatBuffer autopep8
+  autocmd FileType rust AutoFormatBuffer rustfmt
+  autocmd FileType vue AutoFormatBuffer prettier
+augroup END
