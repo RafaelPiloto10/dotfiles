@@ -44,6 +44,9 @@ Plugin 'google/vim-maktaba'
 Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'sonph/onehalf', {'rtp': 'vim/'}
+Plugin 'fatih/vim-go'
+Plugin 'bazelbuild/vim-bazel'
 " ===================
 " end of plugins
 " ===================
@@ -252,7 +255,6 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme='minimalist'
-colorscheme DevC++
 
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
@@ -292,3 +294,8 @@ augroup autoformat_settings
   autocmd FileType rust AutoFormatBuffer rustfmt
   autocmd FileType vue AutoFormatBuffer prettier
 augroup END
+
+colorscheme onehalflight
+let g:airline_theme='onehalflight'
+
+

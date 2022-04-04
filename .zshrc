@@ -8,7 +8,7 @@ export ZSH="/users/vulcan/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="bureau"
+ZSH_THEME="afowler"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -103,9 +103,6 @@ source $ZSH/oh-my-zsh.sh
 # The next line updates PATH for the Google Cloud SDK.
 # The next line enables shell command completion for gcloud.
 
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-
 export PATH="/opt/homebrew/bin/:$PATH"
 
 #For compilers to find ncurses you may need to set:
@@ -115,8 +112,8 @@ export PATH="/opt/homebrew/bin/:$PATH"
 #For pkg-config to find ncurses you may need to set:
 #  export PKG_CONFIG_PATH="/opt/homebrew/opt/ncurses/lib/pkgconfig"
 
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+# BASE16_SHELL=$HOME/.config/base16-shell/
+# [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 alias vim="nvim"
 alias vi="nvim"
