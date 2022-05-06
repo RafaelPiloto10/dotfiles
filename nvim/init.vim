@@ -1,6 +1,6 @@
 " hello front end masters
 set path+=**
-let mapleader=","
+let mapleader=" "
 
 " Nice menu when typing `:find *.py`
 set wildmode=longest,list,full
@@ -36,8 +36,6 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-colorscheme-switcher'
 Plugin 'google/vim-maktaba'
@@ -47,9 +45,23 @@ Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'sonph/onehalf', {'rtp': 'vim/'}
 Plugin 'fatih/vim-go'
 Plugin 'bazelbuild/vim-bazel'
+Plugin 'nvim-lua/plenary.nvim'
+Plugin 'nvim-telescope/telescope.nvim'
 " ===================
 " end of plugins
 " ===================
+"
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Using Lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 "
 " ===================
 " coc settings
@@ -295,7 +307,7 @@ augroup autoformat_settings
   autocmd FileType vue AutoFormatBuffer prettier
 augroup END
 
-colorscheme onehalflight
-let g:airline_theme='onehalflight'
+colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
 
 
