@@ -46,6 +46,7 @@ Plugin 'nvim-lua/plenary.nvim'
 Plugin 'nvim-telescope/telescope.nvim'
 Plugin 'kyazdani42/nvim-web-devicons'
 Plugin 'yamatsum/nvim-nonicons'
+Plugin 'williamboman/nvim-lsp-installer'
 Plugin 'neovim/nvim-lspconfig'
 Plugin 'nvim-lua/completion-nvim'
 Plugin 'hrsh7th/cmp-nvim-lsp'
@@ -176,6 +177,9 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 " LSP Config
 lua <<EOF
+
+require("nvim-lsp-installer").setup {}
+
 local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys
