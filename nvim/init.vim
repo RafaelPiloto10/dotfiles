@@ -27,9 +27,6 @@ Plugin 'VundleVim/Vundle.vim'  " required
 " ===================
 Plugin 'tpope/vim-fugitive'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'chriskempson/base16-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
@@ -72,9 +69,8 @@ call vundle#end()               " required
 " my settings
 " ===================
 filetype plugin indent on       " required
-nmap ff :FZF<CR>
 " set cursor to block when in insert mode
-set guicursor=n-v-c-sm:block,i-ci-ve:block,r-cr-o:hor20
+" set guicursor=n-v-c-sm:block,i-ci-ve:block,r-cr-o:hor20
 " Enable syntax highlighting
 syntax on
 let g:python_highlight_all = 1
@@ -133,12 +129,6 @@ endif
 if (has("termguicolors"))
 	set termguicolors
 endif
-
-" if filereadable(expand("~/.vimrc_background"))
-"   let base16colorspace=256
-"   source ~/.vimrc_background
-" endif
-"
 
 highlight clear LineNr
 highlight clear SignColumn
@@ -200,8 +190,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts) buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
   buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
@@ -298,7 +287,10 @@ lua <<EOF
   -- Setup lspconfig.
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  require('lspconfig')['gopls'].setup {
-    capabilities = capabilities
+  for _, lsp in ipairs(servers) do {
+	require('lspconfig')[lsp].setup {
+    	capabilities = capabilities
+  	}
   }
+  end
 EOF
