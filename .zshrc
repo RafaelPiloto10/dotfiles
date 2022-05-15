@@ -99,11 +99,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-
-# The next line updates PATH for the Google Cloud SDK.
-# The next line enables shell command completion for gcloud.
-
-export PATH="/opt/homebrew/bin/:$PATH"
+export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/go/bin/gofumpt:/opt/homebrew/bin/"
 
 #For compilers to find ncurses you may need to set:
 #  export LDFLAGS="-L/opt/homebrew/opt/ncurses/lib"
