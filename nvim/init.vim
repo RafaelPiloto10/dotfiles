@@ -27,8 +27,9 @@ Plugin 'VundleVim/Vundle.vim'  " required
 " ===================
 Plugin 'tpope/vim-fugitive'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline-themes'
+Plugin 'glepnir/galaxyline.nvim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -43,10 +44,11 @@ Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'sonph/onehalf', {'rtp': 'vim/'}
-Plugin 'fatih/vim-go'
 Plugin 'bazelbuild/vim-bazel'
 Plugin 'nvim-lua/plenary.nvim'
 Plugin 'nvim-telescope/telescope.nvim'
+Plugin 'kyazdani42/nvim-web-devicons'
+Plugin 'yamatsum/nvim-nonicons'
 " ===================
 " end of plugins
 " ===================
@@ -185,7 +187,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings using CoCList:
 " Show all diagnostics.
@@ -265,8 +267,8 @@ map <C-b> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
-let g:airline_powerline_fonts = 1
-let g:airline_theme='minimalist'
+" let g:airline_powerline_fonts = 1
+" let g:airline_theme='minimalist'
 
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
@@ -308,6 +310,3 @@ augroup autoformat_settings
 augroup END
 
 colorscheme onehalfdark
-let g:airline_theme='onehalfdark'
-
-
