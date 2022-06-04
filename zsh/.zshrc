@@ -21,3 +21,6 @@ export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/go/bin/gofumpt:/opt/home
 
 alias vim="nvim"
 alias vi="nvim"
+
+export JDTLS_HOME=~/dotfiles/formatters/jdt-language-server-1.12.0 # Directory with the plugin and configs directories
+

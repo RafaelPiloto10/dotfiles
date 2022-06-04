@@ -26,26 +26,40 @@ Plugin 'VundleVim/Vundle.vim'  " required
 " my plugins here
 " ===================
 Plugin 'tpope/vim-fugitive'
+
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+
 Plugin 'scrooloose/nerdtree'
+
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+
 Plugin 'jiangmiao/auto-pairs'
+
 Plugin 'tomtom/tcomment_vim'
+
 Plugin 'airblade/vim-gitgutter'
+
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-colorscheme-switcher'
+
 Plugin 'google/vim-maktaba'
 Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
+
 Plugin 'sonph/onehalf', {'rtp': 'vim/'}
+
 Plugin 'nvim-lua/plenary.nvim'
 Plugin 'nvim-telescope/telescope.nvim'
+Plugin 'nvim-lualine/lualine.nvim'
 Plugin 'kyazdani42/nvim-web-devicons'
 Plugin 'yamatsum/nvim-nonicons'
+
 Plugin 'williamboman/nvim-lsp-installer'
 Plugin 'neovim/nvim-lspconfig'
 Plugin 'nvim-lua/completion-nvim'
+
 Plugin 'hrsh7th/cmp-nvim-lsp'
 Plugin 'hrsh7th/cmp-buffer'
 Plugin 'hrsh7th/cmp-path'
@@ -68,6 +82,10 @@ call vundle#end()               " required
 " ===================
 " my settings
 " ===================
+"
+call glaive#Install()
+Glaive codefmt google_java_executable="java -jar ~/dotfiles/formatters/google-java-format-15.0-all-deps.jar"
+
 filetype plugin indent on       " required
 " set cursor to block when in insert mode
 " set guicursor=n-v-c-sm:block,i-ci-ve:block,r-cr-o:hor20
@@ -144,7 +162,7 @@ augroup autoformat_settings
   autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType gn AutoFormatBuffer gn
   autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
-  autocmd FileType java AutoFormatBuffer google-java-format
+  " autocmd FileType java AutoFormatBuffer google-java-format
   autocmd FileType python AutoFormatBuffer yapf
   " Alternative: autocmd FileType python AutoFormatBuffer autopep8
   autocmd FileType rust AutoFormatBuffer rustfmt
@@ -206,7 +224,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'gopls', 'html' }
+local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'gopls', 'html', 'jdtls' }
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
@@ -285,4 +303,27 @@ lua <<EOF
       { name = 'cmdline' }
     })
   })
+
+require('lualine').setup({
+	options = {
+		theme = 'onedark',
+  		section_separators = { left = '', right = '' },
+	},
+	sections = {
+		lualine_a = {'mode'},
+		lualine_b = {'branch', 'diff', 'diagnostics'},
+		lualine_c = {},
+		lualine_x = {'encoding', 'filetype'},
+		lualine_y = {'progress'},
+		lualine_z = {'location'}
+  	},
+	tabline = {
+	  lualine_a = {'buffers'},
+	  lualine_b = {},
+	  lualine_c = {},
+	  lualine_x = {},
+	  lualine_y = {},
+	  lualine_z = {}
+	}
+})
 EOF
