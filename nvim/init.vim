@@ -48,8 +48,6 @@ Plugin 'google/vim-maktaba'
 Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
 
-Plugin 'sonph/onehalf', {'rtp': 'vim/'}
-
 Plugin 'nvim-lua/plenary.nvim'
 Plugin 'nvim-telescope/telescope.nvim'
 Plugin 'nvim-lualine/lualine.nvim'
@@ -77,6 +75,8 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'sickill/vim-monokai'
 Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'gruvbox-community/gruvbox'
+Plugin 'sonph/onehalf', {'rtp': 'vim/'}
+Plugin 'folke/tokyonight.nvim', { 'branch': 'main' }
 call vundle#end()               " required
 
 " ===================
@@ -169,7 +169,7 @@ augroup autoformat_settings
   autocmd FileType vue AutoFormatBuffer prettier
 augroup END
 
-colorscheme onehalfdark
+colorscheme tokyonight
 "
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -306,7 +306,7 @@ lua <<EOF
 
 require('lualine').setup({
 	options = {
-		theme = 'onedark',
+		theme = 'tokyonight',
   		section_separators = { left = '', right = '' },
 	},
 	sections = {
