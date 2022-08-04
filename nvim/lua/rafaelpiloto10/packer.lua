@@ -1,11 +1,10 @@
 return require('packer').startup(function(use)
     use("wbthomason/packer.nvim")
-    use("RRethy/nvim-base16")
     use("sbdchd/neoformat")
-
 
 	-- Colors
 	use 'chriskempson/base16-vim'
+    use 'tek256/simple-dark'
 
 	-- Automatically changes line numbers when they don't make sense
 	use 'jeffkreeftmeijer/vim-numbertoggle'
@@ -23,8 +22,8 @@ return require('packer').startup(function(use)
 	}
 
 	-- Lua Line, requires custom font
-	use {
-	 	'nvim-lualine/lualine.nvim',
-  		 requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-	}
+	-- use {
+	--  	'nvim-lualine/lualine.nvim',
+  	-- 	 requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+	-- }
 end)

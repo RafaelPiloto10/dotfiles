@@ -3,7 +3,7 @@
 -- source ~/.vimrc_background
 -- endif
 
-vim.g.rafaelpiloto10_colorscheme = "base16-grayscale-dark"
+vim.g.rafaelpiloto10_colorscheme = "simple-dark"
 
 function Color()
     vim.g.gruvbox_contrast_dark = 'hard'
@@ -41,6 +41,10 @@ function Color()
 
     hl("netrwDir", {
         fg = "#5eacd3"
+    })
+
+    hl("StatusLine", {
+        fg = "black"
     })
 
 end
