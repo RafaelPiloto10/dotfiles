@@ -21,6 +21,8 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
+    use("ThePrimeagen/harpoon")
+
     use 'williamboman/nvim-lsp-installer'
     use 'neovim/nvim-lspconfig'
     use 'nvim-lua/completion-nvim'
