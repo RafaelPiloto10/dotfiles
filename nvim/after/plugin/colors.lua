@@ -1,14 +1,10 @@
--- if filereadable(expand("~/.vimrc_background"))
--- let base16colorspace=256
--- source ~/.vimrc_background
--- endif
-
-vim.g.rafaelpiloto10_colorscheme = "simple-dark-transparent"
-
 function Color()
-    vim.opt.background = "dark"
-
-    vim.cmd("colorscheme " .. vim.g.rafaelpiloto10_colorscheme)
+    vim.cmd[[
+        if filereadable(expand('~/.vimrc_background'))
+            let base16colorspace=256
+            source ~/.vimrc_background
+        endif
+    ]]
 
     local hl = function(thing, opts)
         vim.api.nvim_set_hl(0, thing, opts)
@@ -40,7 +36,7 @@ function Color()
     })
 
     hl("StatusLine", {
-        fg = "black"
+        bg = "none"
     })
 
 end

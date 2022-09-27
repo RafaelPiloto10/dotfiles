@@ -27,7 +27,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
-local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'gopls', 'html', 'jdtls' }
+local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'gopls', 'html', 'jdtls', 'clangd' }
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
