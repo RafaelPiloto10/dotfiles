@@ -1,0 +1,6 @@
+require("rafaelpiloto10.set")
+require("rafaelpiloto10.packer")
+require("rafaelpiloto10.telescope")
+require("rafaelpiloto10.lsp")
+require("rafaelpiloto10.cmp")
+-- require("rafaelpiloto10.lualine")

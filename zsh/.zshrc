@@ -4,23 +4,22 @@ ZSH_DISABLE_COMPFIX=true
 # Path to your oh-my-zsh installation.
 export ZSH="/users/poisson/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# Set name of the theme to load --- if set to "random", it will load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="afowler-custom"
 
-plugins+=(git zsh-autosuggestions vi-mode )
+plugins+=(git)
 ZVM_VI_EDITOR=nvim
 source $ZSH/oh-my-zsh.sh
 
-VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-VI_MODE_SET_CURSOR=true
 
 export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/go/bin/gofumpt:/opt/homebrew/bin/"
 
 alias vim="nvim"
 alias vi="nvim"
 
-export JDTLS_HOME=~/dotfiles/formatters/jdt-language-server-1.12.0 # Directory with the plugin and configs directories
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
+alias nvim_setup="rm -rf ~/.config/nvim && cp -r ~/dotfiles/nvim ~/.config"
