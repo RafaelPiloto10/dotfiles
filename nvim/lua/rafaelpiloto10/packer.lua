@@ -23,11 +23,10 @@ return require('packer').startup(function(use)
 
     use "ThePrimeagen/harpoon"
 
-    use 'williamboman/nvim-lsp-installer'
-
-    use {
-		'neovim/nvim-lspconfig',
-		branch = 'master'
+	use {
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
 	}
 
     use 'nvim-lua/completion-nvim'
