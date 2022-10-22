@@ -1,3 +1,5 @@
+local nnoremap = require("rafaelpiloto10.keymap").nnoremap
+
 require'treesitter-context'.setup{
     enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
     max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
@@ -57,6 +59,12 @@ require'treesitter-context'.setup{
         },
         yaml = {
             'block_mapping_pair',
+        },
+
+		typescript = {
+			"class_declaration",
+			"abstract_class_declaration",
+			"else_clause",
         },
     },
     exact_patterns = {
