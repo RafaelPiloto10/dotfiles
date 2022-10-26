@@ -10,7 +10,7 @@ return require('packer').startup(function(use)
 	use 'jeffkreeftmeijer/vim-numbertoggle'
 
 	-- Functionality for commenting code
-	-- use 'tomtom/tcomment_vim'
+	use 'tomtom/tcomment_vim'
 
 	-- Shows git diff info in the gutter
 	use 'airblade/vim-gitgutter'
