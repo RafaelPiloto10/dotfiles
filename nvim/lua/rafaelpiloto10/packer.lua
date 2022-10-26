@@ -10,7 +10,7 @@ return require('packer').startup(function(use)
 	use 'jeffkreeftmeijer/vim-numbertoggle'
 
 	-- Functionality for commenting code
-	use 'tomtom/tcomment_vim'
+	-- use 'tomtom/tcomment_vim'
 
 	-- Shows git diff info in the gutter
 	use 'airblade/vim-gitgutter'
@@ -39,6 +39,12 @@ return require('packer').startup(function(use)
     use 'hrsh7th/vim-vsnip'
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/nvim-treesitter-context'
+
+	use {
+	  "folke/todo-comments.nvim",
+	  requires = "nvim-lua/plenary.nvim",
+	}
+
 	-- Lua Line, requires custom font
 	-- use {
 	--  	'nvim-lualine/lualine.nvim',
