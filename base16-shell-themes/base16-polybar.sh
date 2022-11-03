@@ -1,7 +1,7 @@
 #!/bin/sh
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (http://chriskempson.com)
-# Monokai scheme by Wimer Hazenberg (http://www.monokai.nl)
+# Polybar scheme by Rafael Piloto
 
 color00="ea/bd/bb" # Base 00 - Black
 color01="c3/a8/e6" # Base 08 - Red
