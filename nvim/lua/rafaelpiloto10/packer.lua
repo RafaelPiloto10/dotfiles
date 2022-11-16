@@ -21,10 +21,14 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
-    use("ThePrimeagen/harpoon")
+    use "ThePrimeagen/harpoon"
 
-    use 'williamboman/nvim-lsp-installer'
-    use 'neovim/nvim-lspconfig'
+	use {
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
+	}
+
     use 'nvim-lua/completion-nvim'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
@@ -33,7 +37,14 @@ return require('packer').startup(function(use)
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
-    
+    use 'nvim-treesitter/nvim-treesitter'
+    use 'nvim-treesitter/nvim-treesitter-context'
+
+	use {
+	  "folke/todo-comments.nvim",
+	  requires = "nvim-lua/plenary.nvim",
+	}
+
 	-- Lua Line, requires custom font
 	-- use {
 	--  	'nvim-lualine/lualine.nvim',

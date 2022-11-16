@@ -1,11 +1,25 @@
-require("nvim-lsp-installer").setup {}
-local nvim_lsp = require('lspconfig')
+require("mason").setup()
+
+local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'gopls', 'html', 'jdtls', 'clangd', 'sumneko_lua' }
+require("mason-lspconfig").setup({
+    ensure_installed = servers,
+	automatic_installation = true,
+})
+
+-- Mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+local opts = { noremap=true, silent=true }
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+  -- Enable completion triggered by <c-x><c-o>
+  -- Do not use when using nvim-cmp: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
+  -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -24,11 +38,12 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
-local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'gopls', 'html', 'jdtls', 'clangd', 'sumneko_lua' }
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local nvim_lsp = require('lspconfig')
+
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -39,4 +54,5 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-vim.cmd("autocmd BufEnter * lua require'completion'.on_attach()")
+-- Causes weird things?
+-- vim.cmd("autocmd BufEnter * lua require'completion'.on_attach()")
