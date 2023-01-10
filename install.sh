@@ -8,3 +8,6 @@ git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/
 
 brew install git
 brew install ripgrep
+
+brew tap homebrew/cask-fonts
+brew install --cask font-iosevka
