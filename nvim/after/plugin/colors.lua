@@ -1,7 +1,7 @@
 require("noirbuddy").setup {
 	colors = {
-		primary = '#ffcc66',
-		secondary = "#ffffff",
+		primary = "#ffffff",
+		secondary = '#ffcc66',
 		background = '#212733',
 
 		diagnostic_error = '#FF3131',
@@ -28,8 +28,8 @@ function Color()
 	--     endif
 	-- ]]
 
-	Group.new('TelescopeTitle', colors.primary)
-	Group.new('TelescopeBorder', colors.secondary)
+	Group.new('TelescopeTitle', colors.secondary)
+	Group.new('TelescopeBorder', colors.primary)
 	Group.new('CursorLineNr', colors.primary, colors.noir_9)
 	Group.new('LineNr', colors.primary)
 	Group.new('SignColumn', colors.background)
@@ -54,6 +54,8 @@ function Color()
 
 	Group.new('@comment', colors.noir_3)
 	Group.new('@punctuation', colors.noir_1)
+	Group.new('@string', colors.secondary)
+	Group.new('@number', colors.secondary)
 
 	-- Add font styles to highlight groups...
 	Group.new('@constant', colors.noir_2, nil, styles.bold)
