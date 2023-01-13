@@ -1,8 +1,31 @@
+function string.starts(String, Start)
+	return string.sub(String, 1, string.len(Start)) == Start
+end
+
+local background = ""
+local primary = "#ffffff"
+local secondary = ""
+local background_light = ""
+
+-- Set's the theme using the kitty theme
+for line in io.lines(os.getenv("HOME") .. "/dotfiles/kitty/theme.conf") do
+	if (string.starts(line, "background")) then
+		background = string.sub(line, string.len("background ") + 1, string.len(line))
+		print(background)
+	elseif (string.starts(line, "cursor")) then
+		secondary = string.sub(line, string.len("cursor ") + 1, string.len(line))
+		print(secondary)
+	elseif (string.starts(line, "selection_background")) then
+		background_light = string.sub(line, string.len("selection_background ") + 1, string.len(line))
+		print(background_light)
+	end
+end
+
 require("noirbuddy").setup {
 	colors = {
-		primary = "#ffffff",
-		secondary = '#ffcc66',
-		background = '#212733',
+		primary = primary,
+		secondary = secondary,
+		background = background,
 
 		diagnostic_error = '#FF3131',
 		diagnostic_warning = '#FF5733',
@@ -20,7 +43,7 @@ function Color()
 	-- Require colorbuddy...
 	local Colors, colors, Group, groups, styles = require('colorbuddy').setup {}
 
-	Colors.new('background_light', '#3c475d')
+	Colors.new('background_light', background_light)
 	-- vim.cmd[[
 	--     if filereadable(expand('~/.vimrc_background'))
 	--         let base16colorspace=256
