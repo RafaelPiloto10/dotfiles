@@ -23,11 +23,11 @@ function GenerateTheme(background, background_light, primary, secondary, dark)
 		theme.noir_2 = '#404040'
 		theme.noir_3 = '#545454'
 		theme.noir_4 = '#696969'
-		theme.noir_5 = '#8f8f8f'
-		theme.noir_6 = '#adadad'
-		theme.noir_7 = '#c2c2c2'
-		theme.noir_8 = '#e6e6e6'
-		theme.noir_9 = '#f5f5f5'
+		theme.noir_5 = '#696969'
+		theme.noir_6 = '#696969'
+		theme.noir_7 = '#696969'
+		theme.noir_8 = '#696969'
+		theme.noir_9 = '#696969'
 		vim.g.background = "light"
 	end
 
