@@ -7,27 +7,27 @@ function GenerateTheme(background, background_light, primary, secondary, dark)
 
 	if dark then
 		theme.noir_0 = '#ffffff' -- `noir_0` is light for dark themes, and dark for light themes
-		theme.noir_1 = '#f5f5f5'
-		theme.noir_2 = '#d5d5d5'
-		theme.noir_3 = '#b4b4b4'
-		theme.noir_4 = '#a7a7a7'
-		theme.noir_5 = '#949494'
-		theme.noir_6 = '#737373'
-		theme.noir_7 = '#535353'
-		theme.noir_8 = '#323232'
-		theme.noir_9 = '#212121' -- `noir_9` is dark for dark themes, and light for light themes
+		theme.noir_1 = '#ffffff'
+		theme.noir_2 = '#ffffff'
+		theme.noir_3 = '#ffffff'
+		theme.noir_4 = '#ffffff'
+		theme.noir_5 = '#ffffff'
+		theme.noir_6 = '#ffffff'
+		theme.noir_7 = '#ffffff'
+		theme.noir_8 = '#ffffff'
+		theme.noir_9 = '#ffffff' -- `noir_9` is dark for dark themes, and light for light themes
 		vim.g.background = "dark"
 	else
 		theme.noir_0 = '#000000'
-		theme.noir_1 = '#303030'
-		theme.noir_2 = '#404040'
-		theme.noir_3 = '#545454'
-		theme.noir_4 = '#696969'
-		theme.noir_5 = '#696969'
-		theme.noir_6 = '#696969'
-		theme.noir_7 = '#696969'
-		theme.noir_8 = '#696969'
-		theme.noir_9 = '#696969'
+		theme.noir_1 = '#000000'
+		theme.noir_2 = '#000000'
+		theme.noir_3 = '#000000'
+		theme.noir_4 = '#000000'
+		theme.noir_5 = '#000000'
+		theme.noir_6 = '#000000'
+		theme.noir_7 = '#000000'
+		theme.noir_8 = '#000000'
+		theme.noir_9 = '#000000'
 		vim.g.background = "light"
 	end
 
@@ -35,11 +35,11 @@ function GenerateTheme(background, background_light, primary, secondary, dark)
 end
 
 local ayu_mirage = GenerateTheme('#212733', '#343f4c', '#ffffff', '#ffcc66', true)
-local black = GenerateTheme('#000000', '#cccccc', '#ffffff', '#ffffff', true)
+local black = GenerateTheme('#0e1419', '#4a4a4a', '#ffffff', '#ffffff', true)
 local white = GenerateTheme('#ffffff', '#cccccc', '#000000', '#000000', false)
 
-function Color(theme)
-	local t = ayu_mirage
+function MonoColor(theme)
+	local t = black
 	if theme == "ayu_mirage" then
 		t = ayu_mirage
 	elseif theme == "black" then
@@ -94,12 +94,20 @@ function Color(theme)
 	Group.new('LineNr', colors.primary)
 	Group.new('SignColumn', colors.background)
 	Group.new('ColorColumn', colors.background)
-	Group.new('Searchlight', nil, colors.secondary)
+
+	Group.new("MatchParen", colors.none, colors.background_light)
+
+	Group.new('SearchInc', colors.none, colors.background_light)
+	Group.new('Search', colors.none, colors.background_light)
+
+	Group.new('CGonceal', colors.background_light, colors.none)
+	Group.new('VertSplit', colors.background_light, colors.none)
 
 	Group.new("StatusLine", colors.background, colors.none)
 	Group.new("StatusLineNC", colors.background, colors.none)
 
 	Group.new("Visual", colors.none, colors.background_light)
+	Group.new('VisualNOS', colors.none, colors.background_light)
 
 	Group.new("PMenu", colors.primary, colors.background)
 	Group.new("PmenuSbar", colors.background, colors.secondary)
@@ -138,4 +146,46 @@ function Color(theme)
 
 end
 
-Color()
+function ThemeColor(theme) 
+	vim.cmd.colorscheme(theme)
+end
+
+function DefaultColor()
+	local Colors, colors, Group, groups, styles = require('colorbuddy').setup {}
+
+	Colors.new('primary', '#6E675F')
+	Colors.new('background', '#FFFFFF')
+	Colors.new('secondary', '#F095C7')
+
+	Colors.new('diff_add', '#95C72A')
+	Colors.new('diff_change', '#229986')
+	Colors.new('diff_delete', '#EC0034')
+
+	Group.new('TelescopeTitle', colors.secondary)
+	Group.new('TelescopeBorder', colors.primary)
+
+	Group.new('LineNr', colors.primary)
+	Group.new('SignColumn', colors.background)
+	Group.new('ColorColumn', colors.background)
+
+	Group.new("StatusLine", colors.background, colors.none)
+	Group.new("StatusLineNC", colors.background, colors.none)
+
+	Group.new("PMenu", colors.primary, colors.background)
+	Group.new("PmenuSbar", colors.background, colors.secondary)
+	Group.new("PMenuSel", colors.background, colors.secondary)
+	Group.new("PmenuThumb", colors.background, colors.secondary)
+
+	Group.new("GitGutterAdd", colors.diff_add, colors.none)
+	Group.new("GitGutterDelete", colors.diff_delete, colors.none)
+	Group.new("GitGutterChange", colors.diff_change, colors.none)
+	Group.new("GitGutterChangeDelete", colors.diff_change, colors.none)
+end
+
+-- MonoColor("white")
+-- MonoColor("black")
+-- MonoColor("ayu")
+
+-- ThemeColor("base16-github")
+
+DefaultColor()
