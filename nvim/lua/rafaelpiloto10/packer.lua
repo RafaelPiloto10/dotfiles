@@ -5,6 +5,7 @@ return require('packer').startup(function(use)
 	-- Colors
 	use 'chriskempson/base16-vim'
 	use 'tek256/simple-dark'
+	use 'ishan9299/modus-theme-vim'
 
 	-- Automatically changes line numbers when they don't make sense
 	use 'jeffkreeftmeijer/vim-numbertoggle'

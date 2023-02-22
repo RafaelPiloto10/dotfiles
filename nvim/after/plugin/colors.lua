@@ -134,8 +134,6 @@ function MonoColor(theme)
 	Group.new("GitGutterChange", colors.diff_change, colors.none)
 	Group.new("GitGutterChangeDelete", colors.diff_change, colors.none)
 
-
-
 	local hl = function(thing, opts)
 		vim.api.nvim_set_hl(0, thing, opts)
 	end
@@ -161,6 +159,9 @@ function DefaultColor()
 	Colors.new('diff_change', '#229986')
 	Colors.new('diff_delete', '#EC0034')
 
+	Colors.new('my_diagnostic_info', '#0511F2')
+	Group.new('DiagnosticInfo', colors.my_diagnostic_info)
+
 	Group.new('TelescopeTitle', colors.secondary)
 	Group.new('TelescopeBorder', colors.primary)
 
@@ -180,12 +181,20 @@ function DefaultColor()
 	Group.new("GitGutterDelete", colors.diff_delete, colors.none)
 	Group.new("GitGutterChange", colors.diff_change, colors.none)
 	Group.new("GitGutterChangeDelete", colors.diff_change, colors.none)
+
+	local hl = function(thing, opts)
+		vim.api.nvim_set_hl(0, thing, opts)
+	end
+
+	hl("StatusLine", {
+		bg = "none"
+	})
 end
 
 -- MonoColor("white")
 -- MonoColor("black")
 -- MonoColor("ayu")
 
--- ThemeColor("base16-github")
+ThemeColor("modus-operandi")
 
-DefaultColor()
+-- DefaultColor()

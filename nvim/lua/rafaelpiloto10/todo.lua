@@ -40,7 +40,7 @@ require("todo-comments").setup {
   colors = {
     error = { "DiagnosticError", "ErrorMsg", "#FF3333" },
     warning = { "DiagnosticWarning", "WarningMsg", "#FBBF24" },
-    info = { "DiagnosticInfo", "#2563EB" },
+    info = { "DiagnosticInfo", "#0511F2" },
     hint = { "DiagnosticHint", "#10B981" },
     default = { "Identifier", "#7C3AED" },
     test = { "Identifier", "#FF00FF" }
