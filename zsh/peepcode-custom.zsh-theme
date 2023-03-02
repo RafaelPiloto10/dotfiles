@@ -18,7 +18,7 @@ git_mode() {
 
 git_dirty() {
   if [[ "$repo_path" != '.' && -n "$(command git ls-files -m)" ]]; then
-    echo " %{$fg_bold[grey]%}✗%{$reset_color%}"
+    echo " %{$fg_bold[white]%}✗%{$reset_color%}"
   fi
 }
 
@@ -26,7 +26,7 @@ git_prompt() {
   local cb=$(git_current_branch)
   if [[ -n "$cb" ]]; then
     local repo_path=$(git_repo_path)
-    echo " %{$fg_bold[black]%}$cb %{$fg[black]%}$(git_commit_id)%{$reset_color%}$(git_mode)$(git_dirty)"
+    echo " %{$fg_bold[white]%}$cb %{$fg[white]%}$(git_commit_id)%{$reset_color%}$(git_mode)$(git_dirty)"
   fi
 }
 
