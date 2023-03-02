@@ -22,6 +22,4 @@ vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set('n', '<C-s>', '<C-w>w')
 
-nnoremap('<C-]>', function()  vim.cmd('bnext') end, opts)
-nnoremap('<C-[>', function() vim.cmd('bprev') end, opts)
-nnoremap('<C-w>', function() vim.cmd('bd') end, opts)
+

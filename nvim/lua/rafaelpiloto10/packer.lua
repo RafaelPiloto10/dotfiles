@@ -54,8 +54,8 @@ return require('packer').startup(function(use)
 	}
 
 	-- Lua Line, requires custom font
-	use {
-	 	'nvim-lualine/lualine.nvim',
-		 requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-	}
+	-- use {
+	--  	'nvim-lualine/lualine.nvim',
+	-- 	 requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+	-- }
 end)
