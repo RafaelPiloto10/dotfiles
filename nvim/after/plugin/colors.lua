@@ -144,8 +144,9 @@ function MonoColor(theme)
 
 end
 
-function ThemeColor(theme) 
+function ThemeColor(theme, mode)
 	vim.cmd.colorscheme(theme)
+	vim.cmd("set background=" .. mode)
 end
 
 function DefaultColor()
@@ -195,6 +196,8 @@ end
 -- MonoColor("black")
 -- MonoColor("ayu")
 
-ThemeColor("modus-operandi")
+-- ThemeColor("modus-operandi", "light")
+-- ThemeColor("modus-vivendi", "dark")
+ThemeColor("lunaperche", "dark")
 
 -- DefaultColor()
