@@ -5,9 +5,10 @@ return require('packer').startup(function(use)
 	-- Colors
 	-- use 'chriskempson/base16-vim'
 	use 'ishan9299/modus-theme-vim'
-	use 'danishprakash/vim-yami'
+	use 'RafaelPiloto10/vim-yami'
 	use 'kadekillary/skull-vim'
 	use 'rafi/awesome-vim-colorschemes'
+	use {'rose-pine/neovim', as = 'rose-pine'}
 
 	-- Automatically changes line numbers when they don't make sense
 	use 'jeffkreeftmeijer/vim-numbertoggle'

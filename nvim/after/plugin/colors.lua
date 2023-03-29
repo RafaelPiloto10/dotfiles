@@ -1,3 +1,7 @@
+require('rose-pine').setup({
+    disable_background = true
+})
+
 function GenerateTheme(background, background_light, primary, secondary, dark)
 	local theme = {}
 	theme.background = background
@@ -11,7 +15,7 @@ function GenerateTheme(background, background_light, primary, secondary, dark)
 		theme.noir_2 = '#ffffff'
 		theme.noir_3 = '#ffffff'
 		theme.noir_4 = '#ffffff'
-		theme.noir_5 = '#ffffff'
+		theme.noir_6 = '#ffffff'
 		theme.noir_6 = '#ffffff'
 		theme.noir_7 = '#ffffff'
 		theme.noir_8 = '#ffffff'
@@ -146,7 +150,40 @@ end
 
 function ThemeColor(theme, mode)
 	vim.cmd.colorscheme(theme)
-	vim.cmd("set background=" .. mode)
+
+	if mode == "none" then
+		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+	else
+		vim.cmd("set background=" .. mode)
+	end
+
+	local Colors, colors, Group, groups, styles = require('colorbuddy').setup {}
+
+	Colors.new('diff_add', '#95C72A')
+	Colors.new('diff_change', '#229986')
+	Colors.new('diff_delete', '#EC0034')
+
+	Colors.new('my_diagnostic_info', '#0511F2')
+	Group.new('DiagnosticInfo', colors.my_diagnostic_info)
+
+	Group.new('TelescopeTitle', colors.secondary)
+	Group.new('TelescopeBorder', colors.primary)
+
+	Group.new('LineNr', colors.primary)
+	Group.new('SignColumn', colors.background)
+	Group.new('ColorColumn', colors.background)
+
+
+	Group.new("PMenu", colors.primary, colors.background)
+	Group.new("PmenuSbar", colors.background, colors.secondary)
+	Group.new("PMenuSel", colors.background, colors.secondary)
+	Group.new("PmenuThumb", colors.background, colors.secondary)
+
+	Group.new("GitGutterAdd", colors.diff_add, colors.none)
+	Group.new("GitGutterDelete", colors.diff_delete, colors.none)
+	Group.new("GitGutterChange", colors.diff_change, colors.none)
+	Group.new("GitGutterChangeDelete", colors.diff_change, colors.none)
 end
 
 function DefaultColor()
@@ -198,6 +235,8 @@ end
 
 -- ThemeColor("modus-operandi", "light")
 -- ThemeColor("modus-vivendi", "dark")
-ThemeColor("lunaperche", "dark")
+-- ThemeColor("lunaperche", "dark")
+-- ThemeColor("rdark-terminal2", "light")
+ThemeColor("rose-pine", "none")
 
 -- DefaultColor()
