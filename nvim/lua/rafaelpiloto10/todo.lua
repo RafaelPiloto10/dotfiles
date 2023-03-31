@@ -9,7 +9,7 @@ require("todo-comments").setup {
       alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
       -- signs = false, -- configure signs for some keywords individually
     },
-    TODO = { icon = " ", color = "info" },
+    TODO = { icon = " ", color = "info"},
     HACK = { icon = " ", color = "warning" },
     WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
     PERF = { icon = " ", color = "default", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
@@ -40,7 +40,7 @@ require("todo-comments").setup {
   colors = {
     error = { "DiagnosticError", "ErrorMsg", "#FF3333" },
     warning = { "DiagnosticWarning", "WarningMsg", "#FBBF24" },
-    info = { "DiagnosticInfo", "#0511F2" },
+    info = { "#05b1f5", "DiagnosticInfo" },
     hint = { "DiagnosticHint", "#10B981" },
     default = { "Identifier", "#7C3AED" },
     test = { "Identifier", "#FF00FF" }
