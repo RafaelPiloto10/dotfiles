@@ -8,7 +8,7 @@ return require('packer').startup(function(use)
 	use 'RafaelPiloto10/vim-yami'
 	use 'kadekillary/skull-vim'
 	use 'rafi/awesome-vim-colorschemes'
-	use {'rose-pine/neovim', as = 'rose-pine'}
+	use { 'rose-pine/neovim', as = 'rose-pine' }
 
 	-- Automatically changes line numbers when they don't make sense
 	use 'jeffkreeftmeijer/vim-numbertoggle'

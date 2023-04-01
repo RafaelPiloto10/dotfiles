@@ -1,7 +1,3 @@
-require('rose-pine').setup({
-    disable_background = true
-})
-
 function GenerateTheme(background, background_light, primary, secondary, dark)
 	local theme = {}
 	theme.background = background
@@ -152,8 +148,8 @@ function ThemeColor(theme, mode)
 	vim.cmd.colorscheme(theme)
 
 	if mode == "none" then
-		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+		vim.api.nvim_set_hl(0, "normal", { bg = "none" })
+		vim.api.nvim_set_hl(0, "normalfloat", { bg = "none" })
 	else
 		vim.cmd("set background=" .. mode)
 	end
@@ -237,6 +233,7 @@ end
 -- ThemeColor("modus-vivendi", "dark")
 -- ThemeColor("lunaperche", "dark")
 -- ThemeColor("rdark-terminal2", "light")
-ThemeColor("rose-pine", "none")
-
+-- ThemeColor("rose-pine", "none")
 -- DefaultColor()
+
+-- vim.cmd.colorscheme("rose-pine")
