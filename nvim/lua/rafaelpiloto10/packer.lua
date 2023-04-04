@@ -1,10 +1,14 @@
 return require('packer').startup(function(use)
-    use("wbthomason/packer.nvim")
-    use("sbdchd/neoformat")
+	use("wbthomason/packer.nvim")
+	use("sbdchd/neoformat")
 
 	-- Colors
-	use 'chriskempson/base16-vim'
-    use 'tek256/simple-dark'
+	-- use 'chriskempson/base16-vim'
+	use 'ishan9299/modus-theme-vim'
+	use 'RafaelPiloto10/vim-yami'
+	use 'kadekillary/skull-vim'
+	use 'rafi/awesome-vim-colorschemes'
+	use { 'rose-pine/neovim', as = 'rose-pine' }
 
 	-- Automatically changes line numbers when they don't make sense
 	use 'jeffkreeftmeijer/vim-numbertoggle'
@@ -18,10 +22,10 @@ return require('packer').startup(function(use)
 	-- Telescope for quick file access
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.0',
-		requires = { {'nvim-lua/plenary.nvim'} }
+		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
 
-    use "ThePrimeagen/harpoon"
+	use "ThePrimeagen/harpoon"
 
 	use {
 		"williamboman/mason.nvim",
@@ -29,25 +33,30 @@ return require('packer').startup(function(use)
 		"neovim/nvim-lspconfig",
 	}
 
-    use 'nvim-lua/completion-nvim'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-vsnip'
-    use 'hrsh7th/vim-vsnip'
-    use 'nvim-treesitter/nvim-treesitter'
-    use 'nvim-treesitter/nvim-treesitter-context'
+	use 'nvim-lua/completion-nvim'
+	use 'hrsh7th/cmp-nvim-lsp'
+	use 'hrsh7th/cmp-buffer'
+	use 'hrsh7th/cmp-path'
+	use 'hrsh7th/cmp-cmdline'
+	use 'hrsh7th/nvim-cmp'
+	use 'hrsh7th/cmp-vsnip'
+	use 'hrsh7th/vim-vsnip'
+	use 'nvim-treesitter/nvim-treesitter'
+	use 'nvim-treesitter/nvim-treesitter-context'
 
 	use {
-	  "folke/todo-comments.nvim",
-	  requires = "nvim-lua/plenary.nvim",
+		"folke/todo-comments.nvim",
+		requires = "nvim-lua/plenary.nvim",
+	}
+
+	use {
+		"jesseleite/nvim-noirbuddy",
+		requires = { "tjdevries/colorbuddy.nvim", branch = "dev" }
 	}
 
 	-- Lua Line, requires custom font
 	-- use {
 	--  	'nvim-lualine/lualine.nvim',
-  	-- 	 requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+	-- 	 requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 	-- }
 end)
