@@ -23,3 +23,4 @@ alias vi="nvim"
 # [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 alias nvim_setup="rm -rf ~/.config/nvim && cp -r ~/dotfiles/nvim ~/.config"
+alias kitty_theme="kitty +kitten themes"

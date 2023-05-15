@@ -9,6 +9,7 @@ return require('packer').startup(function(use)
 	use 'kadekillary/skull-vim'
 	use 'rafi/awesome-vim-colorschemes'
 	use { 'rose-pine/neovim', as = 'rose-pine' }
+	use { "catppuccin/nvim", as = "catppuccin" }
 
 	-- Automatically changes line numbers when they don't make sense
 	use 'jeffkreeftmeijer/vim-numbertoggle'

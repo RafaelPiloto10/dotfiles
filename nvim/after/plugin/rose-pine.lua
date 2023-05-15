@@ -48,5 +48,3 @@ require("rose-pine").setup {
 		StatusLine = { bg = 'none'},
 	}
 }
-
-vim.cmd.colorscheme("rose-pine")
