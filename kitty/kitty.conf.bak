@@ -34,10 +34,9 @@ tab_separator " | "
 #: inactive_tab_background #22262d
 #: inactive_tab_font_style normal
 
-background_opacity 0.85
-
+# background_opacity 0.90
 
 # BEGIN_KITTY_THEME
-# Rosé Pine Moon
+# Xcodedark
 include current-theme.conf
 # END_KITTY_THEME
