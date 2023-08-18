@@ -237,4 +237,5 @@ end
 -- DefaultColor()
 
 -- vim.cmd.colorscheme("rose-pine")
-vim.cmd.colorscheme("basic-light")
+-- vim.cmd.colorscheme("basic-light")
+vim.cmd.colorscheme("yami")
