@@ -3,12 +3,14 @@ return require('packer').startup(function(use)
 	use("sbdchd/neoformat")
 
 	-- Colors
+	use 'wjlroe/brutalist.vim'
+	use 'matveyt/vim-modest'
+	-- use 'ishan9299/modus-theme-vim'
+	-- use 'rafi/awesome-vim-colorschemes'
 	-- use 'chriskempson/base16-vim'
-	use 'ishan9299/modus-theme-vim'
-	use 'RafaelPiloto10/vim-yami'
-	use 'RafaelPiloto10/basic.nvim'
-	use 'kadekillary/skull-vim'
-	use 'rafi/awesome-vim-colorschemes'
+	-- use 'RafaelPiloto10/vim-yami'
+	-- use 'kadekillary/skull-vim'
+	-- use 'RafaelPiloto10/basic.nvim'
 	use { 'rose-pine/neovim', as = 'rose-pine' }
 	use { "catppuccin/nvim", as = "catppuccin" }
 

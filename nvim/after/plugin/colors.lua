@@ -238,4 +238,9 @@ end
 
 -- vim.cmd.colorscheme("rose-pine")
 -- vim.cmd.colorscheme("basic-light")
-vim.cmd.colorscheme("yami")
+
+vim.cmd.colorscheme("modest")
+-- vim.api.nvim_set_hl(0, "normal", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "normalfloat", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+--

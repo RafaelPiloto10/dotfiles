@@ -9,7 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="peepcode-custom"
 
-plugins+=(git)
+plugins+=(git docker)
 ZVM_VI_EDITOR=nvim
 source $ZSH/oh-my-zsh.sh
 
