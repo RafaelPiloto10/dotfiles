@@ -5,6 +5,7 @@ return require('packer').startup(function(use)
 	-- Colors
 	use 'wjlroe/brutalist.vim'
 	use 'matveyt/vim-modest'
+	use 'RafaelPiloto10/gruber-darker.nvim'
 	-- use 'ishan9299/modus-theme-vim'
 	-- use 'rafi/awesome-vim-colorschemes'
 	-- use 'chriskempson/base16-vim'

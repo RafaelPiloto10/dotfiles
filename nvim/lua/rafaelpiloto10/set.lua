@@ -49,3 +49,5 @@ vim.opt.shortmess:append("c")
 vim.g.mapleader = " "
 
 vim.o.termguicolors = true
+
+vim.o.colorcolumn = "80"

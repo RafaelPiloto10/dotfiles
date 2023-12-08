@@ -1,6 +1,6 @@
 require("mason").setup()
 
-local servers = { 'pyright', 'pylsp', 'rust_analyzer', 'tsserver', 'gopls', 'html', 'jdtls', 'clangd', 'lua_ls', 'svelte', 'tailwindcss', 'sqlls'}
+local servers = { 'pyright', 'pylsp', 'rust_analyzer', 'tsserver', 'gopls', 'html', 'jdtls', 'clangd', 'lua_ls', 'svelte', 'tailwindcss', 'sqlls', 'cmake'}
 require("mason-lspconfig").setup({
 	ensure_installed = servers,
 	automatic_installation = true,
