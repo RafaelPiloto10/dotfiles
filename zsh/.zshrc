@@ -24,3 +24,4 @@ alias vi="nvim"
 
 alias nvim_setup="rm -rf ~/.config/nvim && cp -r ~/dotfiles/nvim ~/.config"
 alias kitty_theme="kitty +kitten themes"
+alias ssh="kitty +kitten ssh"
