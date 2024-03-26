@@ -1,6 +1,7 @@
 require("mason").setup()
 
-local servers = { 'pyright', 'pylsp', 'rust_analyzer', 'tsserver', 'gopls', 'html', 'jdtls', 'clangd', 'lua_ls', 'svelte', 'tailwindcss', 'sqlls', 'cmake'}
+local servers = { 'pyright', 'pylsp', 'rust_analyzer', 'tsserver', 'gopls', 'html', 'jdtls', 'clangd', 'lua_ls', 'svelte',
+	'tailwindcss', 'sqlls', 'cmake' }
 require("mason-lspconfig").setup({
 	ensure_installed = servers,
 	automatic_installation = true,
@@ -23,6 +24,10 @@ local on_attach = function(client, bufnr)
 
 	-- Mappings.
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
+	if client.name == "tsserver" and client.server_capabilities then
+		client.server_capabilities.documentFormattingProvider = false
+	end
+
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
@@ -53,6 +58,16 @@ for _, lsp in ipairs(servers) do
 		capabilities = capabilities,
 	}
 end
+
+local null_ls = require("null-ls")
+
+null_ls.setup({
+	sources = {
+		null_ls.builtins.formatting.prettier,
+		null_ls.builtins.diagnostics.eslint,
+		null_ls.builtins.completion.spell,
+	},
+})
 
 -- Causes weird things?
 -- vim.cmd("autocmd BufEnter * lua require'completion'.on_attach()")

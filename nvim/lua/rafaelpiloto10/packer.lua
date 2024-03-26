@@ -1,6 +1,5 @@
 return require('packer').startup(function(use)
 	use("wbthomason/packer.nvim")
-	use("sbdchd/neoformat")
 
 	-- Colors
 	use 'wjlroe/brutalist.vim'
@@ -36,6 +35,7 @@ return require('packer').startup(function(use)
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
+		"jose-elias-alvarez/null-ls.nvim",
 	}
 
 	use 'nvim-lua/completion-nvim'
