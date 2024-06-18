@@ -4,10 +4,10 @@ cursor_shape block
 shell_integration no-cursor
 
 font_size 14.0
-font_family		 Iosevka Regular
-bold_font        Iosevka Bold
-italic_font      Iosevka Italic
-bold_italic_font Iosevka Bold Italic
+font_family		 Iosevka Nerd Font Regular
+bold_font        Iosevka Nerd Font Bold
+italic_font      Iosevka Nerd Font Italic
+bold_italic_font Iosevka Nerd Font Bold Italic
 
 allow_remote_control yes
 
@@ -35,7 +35,7 @@ tab_separator " | "
 #: inactive_tab_font_style normal
 
 # BEGIN_KITTY_THEME
-# Smyck
+# Wombat
 include current-theme.conf
 # END_KITTY_THEME
 # cursor #FFFFFF

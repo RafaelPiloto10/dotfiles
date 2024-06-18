@@ -40,6 +40,7 @@ return {
         "clangd",
         "gopls",
       },
+      automatic_installation = true,
     })
 
     mason_tool_installer.setup({
@@ -49,8 +50,8 @@ return {
         "isort", -- python formatter
         "black", -- python formatter
         "pylint",
-        "eslint_d",
       },
+      automatic_installation = true,
     })
   end,
 }

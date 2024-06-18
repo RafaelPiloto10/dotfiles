@@ -9,7 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="peepcode-custom"
 
-plugins+=(git docker)
+plugins+=(git docker zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting)
 ZVM_VI_EDITOR=nvim
 source $ZSH/oh-my-zsh.sh
 
@@ -24,4 +24,4 @@ alias vi="nvim"
 
 alias nvim_setup="rm -rf ~/.config/nvim && cp -r ~/dotfiles/nvim ~/.config"
 alias kitty_theme="kitty +kitten themes"
-alias ssh="kitty +kitten ssh"
+# alias ssh="kitty +kitten ssh"

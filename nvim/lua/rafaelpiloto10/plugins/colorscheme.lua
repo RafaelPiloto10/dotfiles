@@ -5,3 +5,7 @@ return {
     vim.cmd("colorscheme gruber-darker")
   end,
 }
+
+-- vim.opt.background = "dark"
+-- vim.cmd("colorscheme lunaperche")
+-- return {}
