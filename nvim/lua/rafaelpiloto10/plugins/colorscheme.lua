@@ -1,8 +1,21 @@
+-- return {
+--   "RafaelPiloto10/gruber-darker.nvim",
+--   priority = 1000,
+--   config = function()
+--     vim.cmd("colorscheme gruber-darker")
+--   end,
+-- }
+
 return {
-  "RafaelPiloto10/gruber-darker.nvim",
+  "folke/tokyonight.nvim",
+  lazy = false,
   priority = 1000,
+  opts = {},
   config = function()
-    vim.cmd("colorscheme gruber-darker")
+    require("tokyonight").setup({
+      style = "storm",
+    })
+    vim.cmd("colorscheme tokyonight")
   end,
 }
 

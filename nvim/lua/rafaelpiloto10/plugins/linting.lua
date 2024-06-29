@@ -3,10 +3,11 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local lint = require("lint")
+    local lspconfig = require("lspconfig")
 
     lint.linters_by_ft = {
-      javascript = { "eslint" },
       typescript = { "eslint" },
+      javascript = { "eslint" },
       javascriptreact = { "eslint" },
       typescriptreact = { "eslint" },
       svelte = { "eslint" },
@@ -18,7 +19,10 @@ return {
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
       group = lint_augroup,
       callback = function()
-        lint.try_lint()
+        lint.try_lint(nil, {
+          ignore_errors = true,
+          cwd = lspconfig.util.root_pattern(".git") or vim.fn.getcwd(),
+        })
       end,
     })
 
