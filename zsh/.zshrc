@@ -25,3 +25,14 @@ alias vi="nvim"
 alias nvim_setup="rm -rf ~/.config/nvim && cp -r ~/dotfiles/nvim ~/.config"
 alias kitty_theme="kitty +kitten themes"
 # alias ssh="kitty +kitten ssh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# bun completions
+[ -s "/Users/apollo/.bun/_bun" ] && source "/Users/apollo/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

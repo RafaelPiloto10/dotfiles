@@ -1,17 +1,14 @@
 return {
   "goolord/alpha-nvim",
-  dependencies = {
-    "MaximilianLloyd/ascii.nvim",
-    "MunifTanjim/nui.nvim",
-  },
   event = "VimEnter",
   config = function()
     local alpha = require("alpha")
-    local ascii = require("ascii")
     local dashboard = require("alpha.themes.dashboard")
 
     -- Set header
-    dashboard.section.header.val = ascii.get_random_global()
+    dashboard.section.header.val = {
+      "💩",
+    }
     -- Set menu
     dashboard.section.buttons.val = {
       dashboard.button("e", "  > New File", "<cmd>ene<CR>"),
